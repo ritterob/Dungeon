@@ -1,32 +1,23 @@
 ﻿namespace AdventureLibrary;
 public abstract class Character {
 
-    #region  Fields
-
+    // fields
     private int _maxLife;
 
-    #endregion
-
-    #region Properties
-
+    // properties
+    public string Name { get; set; }
     public int MaxLife { 
         get { return _maxLife;} 
         set { _maxLife = value < 1 ? 1 : value;} 
     }
     public int Life { get; set; }
 
-    #endregion
-
-    #region Constructors
-
-    public Character(int maxLife) {
+    // ctors
+    public Character(string name, int maxLife) {
+        Name = name;
         Life = MaxLife = maxLife;
     }
 
-    #endregion
-
-    #region Methods
-
-    #endregion
+    // methods
 
 }   // end class Character

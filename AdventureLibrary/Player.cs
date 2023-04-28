@@ -15,19 +15,28 @@ namespace AdventureLibrary {
         public int Luck { get; set; }   // modifies everything, including ability to detect and avoid traps
         //TODO define weapons class so we can set weapon here
         //public Weapon Wielded { get; set; }
+        //public Weapon[3] Arms // - all weapons carried (up to three)
+        public WeaponType[] Arms { get; set; }
+        public WeaponType Wielded { get; set; }
+        public int Encounters { get; set; }
+        public bool HasIdol { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public Player (int strength, int dexterity, int proficiency, int marksmanship, int luck)
-                : base (30) {
+        public Player (string name, int strength, int dexterity, int proficiency, int marksmanship, 
+                int luck, WeaponType[] arms)
+                : base (name, 35) {
             Strength = strength;
             Dexterity = dexterity;
             Proficiency = proficiency;
             Marksmanship = marksmanship;
             Luck = luck;
-            //Wielded = wielded;
+            Arms = arms;
+            Wielded = Arms[0];
+            Encounters = 0;
+            HasIdol = false;
         }
 
         #endregion
