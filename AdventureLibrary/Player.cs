@@ -40,5 +40,6 @@ namespace AdventureLibrary {
         }
 
     }   // end class Player
+    
 
 }   // end namespace AdventureLibrary
