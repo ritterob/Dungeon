@@ -2,30 +2,32 @@ namespace AdventureLibrary {
 
     public class Player : Character {
 
-        #region Fields
+        // properties
+        public int Strength { get; set; }   // hit, block, and damage for 
+                                            // melee attacks
+        public int Dexterity { get; set; }  // hit, evade, and activate weapon 
+                                            //special for all attacks
+        public int Proficiency { get; set; }    // hit and activate weapon 
+                                                // special for proficient 
+                                                // weapon
+        public int Marksmanship { get; set; }   // hit, damage, and activate 
+                                                // weapon special for ranged 
+                                                // attacks
+        public int Luck { get; set; }   // modifies everything, including 
+                                        // ability to detect and avoid traps
+        public List<WeaponType> Arms { get; set; }  // list of all weapons 
+                                                    // carried
+        public WeaponType Wielded { get; set; } // weapon in hand
+        public int Encounters { get; set; } // number of encounters so far
+        public bool HasIdol { get; set; }   // determine whether you've found
+                                            // the idol
 
-        #endregion
 
-        #region Properties
-
-        public int Strength { get; set; }   // hit, evade, and damage for melee attacks
-        public int Dexterity { get; set; }  // hit, evade, and activate weapon special for all attacks
-        public int Proficiency { get; set; }    // hit and activate weapon special for proficient weapon
-        public int Marksmanship { get; set; }   // hit, damage, and activate weapon special for ranged attacks
-        public int Luck { get; set; }   // modifies everything, including ability to detect and avoid traps
-        //TODO define weapons class so we can set weapon here
-        public WeaponType[] Arms { get; set; }
-        public WeaponType Wielded { get; set; }
-        public int Encounters { get; set; }
-        public bool HasIdol { get; set; }
-
-        #endregion
-
-        #region Constructors
-
-        public Player (string name, int strength, int dexterity, int proficiency, int marksmanship, 
-                int luck, WeaponType[] arms)
-                : base (name, 35) {
+        // constructors
+        public Player (string name, int strength, int dexterity, 
+                int proficiency, int marksmanship, int luck, 
+                List<WeaponType> arms)
+                : base (name, 35, 12) {
             Strength = strength;
             Dexterity = dexterity;
             Proficiency = proficiency;
@@ -36,12 +38,6 @@ namespace AdventureLibrary {
             Encounters = 0;
             HasIdol = false;
         }
-
-        #endregion
-
-        #region Methods
-
-        #endregion
 
     }   // end class Player
 

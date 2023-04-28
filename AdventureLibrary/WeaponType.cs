@@ -14,6 +14,6 @@ namespace AdventureLibrary {
         Machuahuitl,
         Boomstick
 
-    }   // end enum WeaponTypes
+    }   // end enum WeaponType
 
 }   // end namespace AdventureLibrary
