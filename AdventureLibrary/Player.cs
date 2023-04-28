@@ -14,8 +14,6 @@ namespace AdventureLibrary {
         public int Marksmanship { get; set; }   // hit, damage, and activate weapon special for ranged attacks
         public int Luck { get; set; }   // modifies everything, including ability to detect and avoid traps
         //TODO define weapons class so we can set weapon here
-        //public Weapon Wielded { get; set; }
-        //public Weapon[3] Arms // - all weapons carried (up to three)
         public WeaponType[] Arms { get; set; }
         public WeaponType Wielded { get; set; }
         public int Encounters { get; set; }
