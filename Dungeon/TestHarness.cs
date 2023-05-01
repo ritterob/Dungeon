@@ -31,12 +31,16 @@ namespace Dungeon {
 
             }   // end switch
             
-            Console.WriteLine("{0} has {1} life and is carrying a {2}.", 
+            Console.WriteLine("{0} has {1} life and is wielding a {2}.", 
                     player.Name, player.Life, player.Wielded);
-            Console.WriteLine("{0} is carrying {1} weapons.", player.Name, player.Arms.Count);
-
-            Monster monster = new Monster (MonsterType.Jaguar,
-                    d20.Next(7,11), d20.Next(5,9));
+            Console.WriteLine("{0}'s best weapon is the {1}.", player.Name, player.ProficientWeapon);
+            Console.WriteLine("{0} is carrying the following:", player.Name);
+            foreach (WeaponType item in player.Arms) {
+                Console.WriteLine("\t" + item);
+            }
+            Console.WriteLine();
+            Monster monster = new Monster ((MonsterType)d20.Next(1,7),
+                    d20.Next(7,11), d20.Next(7,12));
             Console.WriteLine(monster);
 
         }   // end method Main()
