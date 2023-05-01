@@ -14,19 +14,19 @@ namespace Dungeon {
             switch ((Protagonist)selection) {
                 case Protagonist.Indy:
                     player = new("Indy", 2, 1, 2, 1, 2, (new List<WeaponType> {
-                        WeaponType.Whip, WeaponType.Webley}));
+                        WeaponType.Whip, WeaponType.Webley }), WeaponType.Whip);
                     break;
                 case Protagonist.Lara:
                     player = new("Lara", 1, 1, 2, 0, 1, (new List<WeaponType> {
-                        WeaponType.Pair_of_Knives, WeaponType.Webley}));
+                        WeaponType.Pair_of_Knives, WeaponType.Webley}), WeaponType.Pair_of_Knives);
                     break;
                 case Protagonist.Allan:
                     player = new("Allan", 2, 2, 2, 3, 1, (new List<WeaponType> {
-                        WeaponType.Whip, WeaponType.Webley}));
+                        WeaponType.Whip, WeaponType.Webley}), WeaponType.Webley);
                     break;
                 case Protagonist.Harry:
                     player = new("Harry", 0, 5, 1, 0, 0, (new List<WeaponType> {
-                        WeaponType.Whip, WeaponType.Boomstick}));
+                        WeaponType.Whip, WeaponType.Boomstick}), WeaponType.Whip);
                     break;
 
             }   // end switch

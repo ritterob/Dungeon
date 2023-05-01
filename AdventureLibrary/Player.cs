@@ -18,6 +18,7 @@ namespace AdventureLibrary {
         public List<WeaponType> Arms { get; set; }  // list of all weapons 
                                                     // carried
         public WeaponType Wielded { get; set; } // weapon in hand
+        public WeaponType ProficientWeapon { get; set; }
         public int Encounters { get; set; } // number of encounters so far
         public bool HasIdol { get; set; }   // determine whether you've found
                                             // the idol
@@ -26,7 +27,7 @@ namespace AdventureLibrary {
         // constructors
         public Player (string name, int strength, int dexterity, 
                 int proficiency, int marksmanship, int luck, 
-                List<WeaponType> arms)
+                List<WeaponType> arms, WeaponType proficientWeapon)
                 : base (name, 35, 12) {
             Strength = strength;
             Dexterity = dexterity;
@@ -35,6 +36,7 @@ namespace AdventureLibrary {
             Luck = luck;
             Arms = arms;
             Wielded = Arms[0];
+            ProficientWeapon = proficientWeapon;
             Encounters = 0;
             HasIdol = false;
         }
