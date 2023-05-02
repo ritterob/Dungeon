@@ -4,11 +4,13 @@ namespace AdventureLibrary {
 
         // properties
         public MonsterType Type { get; set; }
+        public int MaxDamage { get; set; }
 
         // constructors
-        public Monster (MonsterType type, int maxLife, int toHit) 
+        public Monster (MonsterType type, int maxLife, int toHit, int maxDamage) 
             : base (type.ToString().Replace('_', ' '), maxLife, toHit) {
             Type = type;
+            MaxDamage = maxDamage;
         }
 
         // methods

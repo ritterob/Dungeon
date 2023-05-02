@@ -42,9 +42,19 @@ namespace Dungeon {
             }
 
             Console.WriteLine();
-            Monster monster = new Monster ((MonsterType)d20.Next(1,7),
-                    d20.Next(7,11), d20.Next(7,12));
+            Monster monster = new Monster ((MonsterType)d20.Next(1,6),
+                    d20.Next(7,11), d20.Next(7,12), d20.Next(1,7));
             Console.WriteLine(monster);
+
+            while (monster.Life > 0 && player.Life > 0) {
+                Console.WriteLine();
+                Console.WriteLine($"You attack with your {player.Wielded.Name}.");
+                Combat.DoAttack(player, monster);
+                Console.WriteLine($"Your life: {player.Life}\t{monster.Name}'s life: {monster.Life}");
+                Console.WriteLine($"The {monster.Name} attacks!");
+                Combat.DoAttack(monster, player);
+                Console.WriteLine($"Your life: {player.Life}\t{monster.Name}'s life: {monster.Life}");
+            }
 
         }   // end method Main()
 
