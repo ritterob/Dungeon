@@ -43,7 +43,7 @@ namespace Dungeon {
 
             Console.WriteLine();
             Monster monster = new Monster ((MonsterType)d20.Next(1,6),
-                    d20.Next(7,11), d20.Next(7,12), d20.Next(1,7));
+                    d20.Next(12,18), d20.Next(7,12), d20.Next(1,7));
             Console.WriteLine(monster);
 
             while (monster.Life > 0 && player.Life > 0) {

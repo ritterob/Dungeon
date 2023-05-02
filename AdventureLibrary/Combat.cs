@@ -20,14 +20,21 @@ namespace AdventureLibrary {
                     Console.WriteLine($"You hit the {defender.Name}, doing {damage} damage.");
                     defender.Life -= damage;
                 }
+                else {
+                    Console.WriteLine("You missed the {0}.", defender.Name);
+                }
             }
             else {
                 (attackBonus, defendBonus) = GetRollBonuses((Player)defender);
                 Monster monster = attacker as Monster;
                 if (d20.Next(1,21) >= defender.ToHit + defendBonus) {
                     damage = d20.Next(1, monster.MaxDamage + 1) - defendBonus;
+                    damage = damage < 0 ? 0 : damage;
                     Console.WriteLine($"The {monster.Name} hits you, doing {damage} damage.");
                     defender.Life -= damage;
+                }
+                else {
+                    Console.WriteLine("The {0} misses.", monster.Name);
                 }
             }
 
