@@ -23,7 +23,7 @@
         // methods
 
         public override string ToString() {
-            return $"{Name} has {Life} of {MaxLife} life left.";
+            return Name;
         }
 
     }   // end class Character

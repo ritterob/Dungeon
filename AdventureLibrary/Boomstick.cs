@@ -27,16 +27,16 @@ namespace AdventureLibrary {
         {
             Name = "Boomstick";
             Type = WeaponType.Boomstick;
-            MaxDamage = 12;
+            MaxDamage = 14;
             Special = SpecialAttack.One_shot_kill;
             Rounds = 25;
-            ShotsPerEncounter = 1;
+            ShotsPerEncounter = 2;
 
         }
 
         public void Reload() {
-            Rounds-- ;
             ShotsPerEncounter += Rounds <= 0 ? 0 : 1 ;
+            Rounds-- ;
         }
     }
 }
