@@ -15,8 +15,7 @@ namespace AdventureLibrary {
 
         // methods
         public override string ToString() {
-            return  $"You encounter an angry {Name}. It has {Life} life left. You'll need at " +
-                $"least {ToHit} to hit it.";
+            return  Name;
         }
 
     }   // end class Monster
