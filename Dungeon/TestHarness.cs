@@ -5,8 +5,38 @@ namespace Dungeon {
     public class TestHarness {
 
         static void Main(string[] args) {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(new String(' ', 35) + "Welcome to an ARCHAEOLOGICAL");
+            Console.WriteLine(GameInfo.Title);
+            Console.WriteLine($"\n{new String(' ', 20)}Proudly released by GREEN SCREEN " +
+                $"PRODUCTIONS, MMXXIII\n");
+            Console.Write("Press a key to continue...");
+            int y = Console.GetCursorPosition().Top;
+            Console.ReadKey(false);
+            Console.SetCursorPosition(0, y);
+            Console.WriteLine(GameInfo.Intro);
+            Console.Write("\nPress a key to continue...");
+            Console.ReadKey(false);
+            Console.Clear();
+            Console.WriteLine("You must choose which ARCHAEOLOGICAL ADVENTURER you will personify...");
+            Console.Write("\nPress a key to continue...");
+            y = Console.GetCursorPosition().Top;
+            Console.ReadKey(false);
+            Console.SetCursorPosition(0, y - 1);
+            Console.WriteLine(GameInfo.Indy);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Lara);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Allan);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Harry);
+            Console.WriteLine(new String('-', 100));
+            Console.Write("\nPress a key to continue...");
+            Console.ReadKey(false);
+            Console.Clear();
+            Console.ResetColor();
 
-            Player player = null;
+            /*Player player = null;
             Random d20 = new Random();
             Console.Write("Please select a character: (1-4) ");
             int selection = int.Parse(Console.ReadLine());
@@ -54,7 +84,7 @@ namespace Dungeon {
                 Console.WriteLine($"The {monster.Name} attacks!");
                 Combat.DoAttack(monster, player);
                 Console.WriteLine($"Your life: {player.Life}\t{monster.Name}'s life: {monster.Life}");
-            }
+            }*/
 
         }   // end method Main()
 
