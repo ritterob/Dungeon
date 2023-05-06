@@ -30,13 +30,15 @@ namespace AdventureLibrary {
             MaxDamage = 14;
             Special = SpecialAttack.One_shot_kill;
             Rounds = 25;
-            ShotsPerEncounter = 1;
+            ShotsPerEncounter = 0;
 
         }
 
         public void Reload() {
-            ShotsPerEncounter += Rounds <= 0 ? 0 : 1 ;
-            Rounds-- ;
+            if (ShotsPerEncounter < 1) {
+                ShotsPerEncounter += Rounds <= 0 ? 0 : 1;
+                Rounds--;
+            }
         }
     }
 }

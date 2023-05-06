@@ -8,22 +8,52 @@ using System.Threading.Tasks;
 namespace AdventureLibrary {
     public static class Combat {
 
-        public static void DoAttack(Character attacker, Character defender) {
+        public static bool IsSpecialAttack = false;
 
-            int attackBonus = 0, defendBonus = 0, damage = 0;
+        public static void DoAttack(Character attacker, Character defender, bool getBonus) {
+
+            int attackBonus = 0, defendBonus = 0, damage = 0, hitRoll = 0;
             Random d20 = new Random();
 
-            if (attacker is Player) {
+            if (attacker is Player) {   // order is player, monster
                 Player player = attacker as Player;
 
-                (attackBonus, defendBonus) = GetRollBonuses(player);
-                if (d20.Next(1,21) + attackBonus >= defender.ToHit) {
+                if (getBonus) {
+                    (attackBonus, defendBonus) = GetRollBonuses(player);
+                }
+                hitRoll = d20.Next(1, 21) + attackBonus;
+                if (hitRoll >= defender.ToHit) {
                     damage = d20.Next(1, player.Wielded.MaxDamage + 1) + attackBonus;
                     Message.Warning($"You hit the {defender.Name}, doing {damage} damage.");
                     defender.Life -= damage;
+                    if (hitRoll >= 24 && IsSpecialAttack == false) {    // critical hit
+                        IsSpecialAttack = true;
+                        switch (player.Wielded.Special) {
+                            case SpecialAttack.Extra_turn:
+                                if (player.Wielded.Type == WeaponType.Pair_of_Knives) {
+                                    Console.WriteLine("" +
+                                        "You're in the zone and you go for another attack!");
+                                }
+                                else if (player.Wielded.Type == WeaponType.Whip) {
+                                    Console.WriteLine("" +
+                                        $"The {defender} gets entangled in your whip and can't " +
+                                        $"counter attack right away!");
+                                }
+                                DoAttack(player, defender, getBonus);
+                                break;
+                            case SpecialAttack.Extra_damage:
+                                Console.WriteLine("You made a really bloody mess of that one.");
+                                defender.Life -= d20.Next(1,6);
+                                break;
+                            case SpecialAttack.One_shot_kill:
+                                Console.WriteLine("That was a great headshot!");
+                                defender.Life = 0;
+                                break;
+                        }   // end switch
+                    }   // end inner if
                 }
                 else {
-                    Console.WriteLine("You missed the {0}.", defender.Name);
+                    Console.WriteLine("You missed the {0}.", defender);
                 }
 
                 if (player.Wielded is IFirearm) {
@@ -33,7 +63,7 @@ namespace AdventureLibrary {
                     }
                 }
             }
-            else {
+            else {  // order is monster, player
                 (attackBonus, defendBonus) = GetRollBonuses((Player)defender);
                 Monster monster = attacker as Monster;
                 if (d20.Next(1,21) >= defender.ToHit + defendBonus) {
@@ -43,24 +73,24 @@ namespace AdventureLibrary {
                     defender.Life -= damage;
                 }
                 else {
-                    Console.WriteLine("The {0} misses.", monster.Name);
+                    Console.WriteLine("The {0} misses.", monster);
                 }
             }
 
-
+            IsSpecialAttack = false;
 
         }   // end method DoAttack()
 
-        public static void DoCombat(Player player, Monster monster) {
+        public static void DoCombat(Player player, Monster monster, bool getBonus) {
 
-            DoAttack(player, monster);
+            DoAttack(player, monster, getBonus);
             if (monster.Life <= 0) {
                 Message.Huzzah($"You killed the {monster.Name}!");
                 return;
             }
             //Console.WriteLine("The {0} has {1} health.", monster.Name, monster.Life);
 
-            DoAttack(monster, player);
+            DoAttack(monster, player, getBonus);
             if (player.Life <= 0) {
                 Console.WriteLine("The {0} got the best of you!", monster.Name);
                 return;

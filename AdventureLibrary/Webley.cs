@@ -28,7 +28,7 @@ namespace AdventureLibrary {
             MaxDamage = 8;
             Special = SpecialAttack.One_shot_kill;
             Rounds = 60;
-            ShotsPerEncounter = 6;
+            ShotsPerEncounter = 0;
         }
 
         public void Reload() {

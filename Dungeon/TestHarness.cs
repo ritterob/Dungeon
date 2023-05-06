@@ -12,16 +12,16 @@ namespace Dungeon {
                 $"PRODUCTIONS, MMXXIII\n");
             Console.Write("Press a key to continue...");
             int y = Console.GetCursorPosition().Top;
-            Console.ReadKey(false);
+            Console.ReadKey(true);
             Console.SetCursorPosition(0, y);
             Console.WriteLine(GameInfo.Intro);
             Console.Write("\nPress a key to continue...");
-            Console.ReadKey(false);
+            Console.ReadKey(true);
             Console.Clear();
             Console.WriteLine("You must choose which ARCHAEOLOGICAL ADVENTURER you will personify...");
             Console.Write("\nPress a key to continue...");
             y = Console.GetCursorPosition().Top;
-            Console.ReadKey(false);
+            Console.ReadKey(true);
             Console.SetCursorPosition(0, y - 1);
             Console.WriteLine(GameInfo.Indy);
             Console.WriteLine(new String('-', 100));
@@ -32,7 +32,7 @@ namespace Dungeon {
             Console.WriteLine(GameInfo.Harry);
             Console.WriteLine(new String('-', 100));
             Console.Write("\nPress a key to continue...");
-            Console.ReadKey(false);
+            Console.ReadKey(true);
             Console.Clear();
             Console.ResetColor();
 
