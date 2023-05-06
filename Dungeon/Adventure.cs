@@ -10,6 +10,8 @@ namespace Dungeon {
 
         static void Main(string[] args) {
 
+            Console.Title = "Adventure!";
+
             #region Variable Declaration
 
             string choice = String.Empty, action = String.Empty;
@@ -21,19 +23,48 @@ namespace Dungeon {
                 "unfriendly", "uptight", "uncharitable"
             };
             Player player = null;
-            //IFirearm gun = null;
             Place place = Place.Jungle;
             bool gameOver = false;
-            int lastLoop = D20.Next(3,6);
+            int lastLoop = D20.Next(4,7);
 
             #endregion
 
             #region Player Selection
-            // TODO Display info so user can choose a character to play.
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(new String(' ', 35) + "Welcome to an ARCHAEOLOGICAL");
+            Console.WriteLine(GameInfo.Title);
+            Console.WriteLine($"\n{new String(' ', 20)}Proudly released by GREEN SCREEN " +
+                $"PRODUCTIONS, MMXXIII\n");
+            Console.Write("Press a key to continue...");
+            int y = Console.GetCursorPosition().Top;
+            Console.ReadKey(false);
+            Console.SetCursorPosition(0, y);
+            Console.WriteLine(GameInfo.Intro);
+            Console.Write("\nPress a key to continue...");
+            Console.ReadKey(false);
+            Console.Clear();
+            Console.WriteLine("You must choose which ARCHAEOLOGICAL ADVENTURER you will personify...");
+            Console.Write("\nPress a key to continue...");
+            y = Console.GetCursorPosition().Top;
+            Console.ReadKey(false);
+            Console.SetCursorPosition(0, y - 1);
+            Console.WriteLine(GameInfo.Indy);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Lara);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Allan);
+            Console.WriteLine(new String('-', 100));
+            Console.WriteLine(GameInfo.Harry);
+            Console.WriteLine(new String('-', 100));
+            Console.Write("\nPress a key to continue...");
+            Console.ReadKey(false);
+            Console.Clear();
+            Console.ResetColor();
 
             for (int i = 1; i <= 4; i++) {  // Give the user four chances to provide a valid value.
-                Console.Write("Select your character: ");
-                choice = Console.ReadKey().KeyChar.ToString();
+                Console.Write("Select your character [1-4] : ");
+                choice = Console.ReadKey(false).KeyChar.ToString();
                 Console.WriteLine($"\t{choice}");
 
                 if (new Regex("^[1234]$").IsMatch(choice)) { break; }
@@ -83,8 +114,8 @@ namespace Dungeon {
                 "which is{4} your most practiced weapon.", 
                 player, player.Life, String.Join(", ", player.Arms), player.Wielded,
                 player.Wielded.Type == player.ProficientWeapon ? "" : " not");
-            Console.Write("\nPress enter to continue...");
-            Console.ReadLine();
+            Console.Write("\nPress a key to continue...");
+            Console.ReadKey(false);
             Console.Clear();
             var gun = player.Arms.First(x => x is IFirearm) as IFirearm;
 
@@ -191,8 +222,8 @@ namespace Dungeon {
 
                     DisplayStats(player, place);
                     Console.Write("Do you want to (A)ttack,{0} (F)lee, or (Q)uit? ", 
-                        (gun.Rounds <= 0 && gun.ShotsPerEncounter <= 0 ? "" : " (C)hange weapon,"));
-                    action = Console.ReadKey().Key.ToString();
+                        (gun.ShotsPerEncounter <= 0 ? "" : " (C)hange weapon,"));
+                    action = Console.ReadKey(false).Key.ToString();
                     Console.WriteLine();
 
                     if (action.ToLower() == "f") {
@@ -257,11 +288,11 @@ namespace Dungeon {
                 monsterMod = 2; lifeMod = 9; hitMod = 4; damageMod = 4;
             }
             else if (player.XP > 180) {
-                monsterMod = 1; lifeMod = 7; hitMod = 3; damageMod = 3;
+                monsterMod = 1; lifeMod = 7; hitMod = 4; damageMod = 3;
 
             }
             else if (player.XP > 130) {
-                monsterMod = 1; lifeMod = 5; hitMod = 2; damageMod = 2;
+                monsterMod = 1; lifeMod = 5; hitMod = 3; damageMod = 2;
             }
             else if(player.XP > 80) {
                 lifeMod = 3; hitMod = 1; damageMod = 1;

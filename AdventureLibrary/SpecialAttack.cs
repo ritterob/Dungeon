@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventureLibrary {
     public enum SpecialAttack {
-        Extra_turn = 1,
+        Extra_turn,
         Extra_damage,
         One_shot_kill
     }

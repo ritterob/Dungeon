@@ -32,12 +32,12 @@ namespace AdventureLibrary {
         }
 
         public void Reload() {
-            if (Rounds >= 6) {
+            if (Rounds + ShotsPerEncounter >= 6) {
                 Rounds -= 6 - ShotsPerEncounter;
                 ShotsPerEncounter = 6;
             }
             else {
-                ShotsPerEncounter = Rounds;
+                ShotsPerEncounter += Rounds;
                 Rounds = 0;
             }
         }
