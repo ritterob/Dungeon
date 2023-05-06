@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AdventureLibrary {
     public enum WeaponType {
 
-        Webley = 1,
+        Webley,
         Whip,
         Pair_of_Knives,
         Machete,

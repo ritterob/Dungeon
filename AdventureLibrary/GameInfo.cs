@@ -27,11 +27,12 @@ namespace AdventureLibrary {
             "#                                                                                                       \n" +
             " ##               ";
         public static string Intro = "" +
-            ".   , our goal is to traverse the jungles of South America, in search of the lost city of the dead —\n" +
-            " \\./  the ancient Necropolis of a little known branch of the Inca. Rumor has it that some of these\n" +
-            "  |   tribesman still exist today, and jealously guard their secrets with beastly adroitness.\n\n" +
+            "__ __   \n" +
+            "\\ v /  our goal is to traverse the jungles of South America, in search of the lost city of the dead —\n" +
+            " \\ /   the ancient Necropolis of a little known branch of the Inca. Rumor has it that some of these\n" +
+            " |_|   tribesman still exist today, and jealously guard their secrets with beastly adroitness.\n\n" +
             "     You must take on the role of one of the greatest adventurers of all time and, using the skills\n" +
-            "you've honed by years of tracking and hunting, and numerous movie and video game appearances,\n" +
+            "you've honed from years of tracking and hunting, and numerous movie and video game appearances,\n" +
             "locate the Necropolis and extract the golden head of Ocxaloc, king of the Inca, from the throne\n" +
             "room where it is enshrined.";
         public static string Indy = "" +
@@ -58,10 +59,26 @@ namespace AdventureLibrary {
         public static string Harry = "" +
             " _  _   \n" +
             "| || |   \"Pitfall\" Harry made his debut in 1982 on home arcade consoles. His was one of\n" +
-            "| || |_  Ativision's first successful titles in the home video game market. He is really\n" +
+            "| || |_  Activision's first successful titles in the home video game market. He is really\n" +
             "|__   _| athletic, and prides himself on his Tarzan impressions as he swings through the\n" +
             "   | |   jungle shouting at the top of his voice. Harry has a lot of experience exploring\n" +
             "   |_|   the jungle and evading 8-bit scorpions.";
+        public static string Celebration = "" +
+            " a88888b.  88888888b dP         88888888b  888888ba   888888ba   .d888888  d888888P dP  .88888.  888888ba  \n" +
+            "d8'   `88  88        88         88         88    `8b  88    `8b d8'    88     88    88 d8'   `8b 88    `8b \n" +
+            "88        a88aaaa    88        a88aaaa    a88aaaa8P' a88aaaa8P' 88aaaaa88a    88    88 88     88 88     88 \n" +
+            "88         88        88         88         88   `8b.  88   `8b. 88     88     88    88 88     88 88     88 \n" +
+            "Y8.   .88  88        88         88         88    .88  88     88 88     88     88    88 Y8.   .8P 88     88 \n" +
+            " Y88888P'  88888888P 88888888P  88888888P  88888888P  dP     dP 88     88     dP    dP  `8888P'  dP     dP ";
+        public static ConsoleColor[] Party = new ConsoleColor[] {
+            ConsoleColor.Cyan, 
+            ConsoleColor.Green, 
+            ConsoleColor.Red, 
+            ConsoleColor.Yellow, 
+            ConsoleColor.Magenta,
+            ConsoleColor.Blue,
+            ConsoleColor.White
+        };
 
     }   // end class
 }
