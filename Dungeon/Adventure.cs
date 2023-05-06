@@ -281,10 +281,10 @@ namespace Dungeon {
                     }
                     else if (monster.Type == MonsterType.Rival_Archaeologist && monster.Life <= 0) {
                         gameOver = true;
-                        while (Console.GetCursorPosition().Top < Console.WindowHeight - 14) {
+                        while (Console.GetCursorPosition().Top < Console.WindowHeight - 12) {
                             Console.WriteLine("\n");
-                            Console.SetCursorPosition(0, Console.GetCursorPosition().Top - 1);
                         }
+                        Console.SetCursorPosition(0, Console.WindowHeight - 11);
                         Message.Reverse("Congratulations! You've succeeded in your quest!");
                         Console.Write("" +
                             "You've managed to win the game with most of your limbs intact and a score " +
@@ -309,7 +309,7 @@ namespace Dungeon {
                         Console.WriteLine();
                     }
 
-                    player.XP += monster.MaxLife;
+                    //player.XP += monster.MaxLife;
                     player.Encounters++;
                     Console.WriteLine();
                     DisplayStats(player, place);

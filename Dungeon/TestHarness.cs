@@ -1,4 +1,5 @@
 using AdventureLibrary;
+using System.Numerics;
 
 namespace Dungeon {
 
@@ -35,6 +36,36 @@ namespace Dungeon {
             Console.ReadKey(true);
             Console.Clear();
             Console.ResetColor();
+
+            Player player = new("Dave", 0, 0, 0, 0, 0, new List<Weapon>{ new Machuahuitl()}, WeaponType.Machuahuitl);
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            while (Console.GetCursorPosition().Top < Console.WindowHeight - 11) {
+                Console.WriteLine("\n");
+                Console.SetCursorPosition(0, Console.GetCursorPosition().Top - 1);
+            }
+            Console.SetCursorPosition(0, Console.WindowHeight - 10);
+            Message.Reverse("Congratulations! You've succeeded in your quest!");
+            Console.Write("" +
+                "You've managed to win the game with most of your limbs intact and a score " +
+                $"of ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(player.XP);
+            Console.ResetColor();
+            Console.WriteLine(". This calls\nfor a celebration!");
+            Thread.Sleep(2000);
+            y = Console.GetCursorPosition().Top;
+            for (int i = 0; i < 27; i++) {
+                ConsoleColor color = Console.ForegroundColor;
+                while (color == Console.ForegroundColor) {
+                    color = GameInfo.Party[new Random().Next(GameInfo.Party.Length)];
+                }
+                Console.ForegroundColor = color;
+                Console.WriteLine(GameInfo.Celebration);
+                Thread.Sleep(333);
+                Console.SetCursorPosition(0, y);
+            }
+            Console.ResetColor();
+            Console.WriteLine();
 
             /*Player player = null;
             Random d20 = new Random();
