@@ -86,6 +86,7 @@ namespace AdventureLibrary {
             DoAttack(player, monster, getBonus);
             if (monster.Life <= 0) {
                 Message.Huzzah($"You killed the {monster.Name}!");
+                player.XP += monster.MaxLife;
                 return;
             }
             //Console.WriteLine("The {0} has {1} health.", monster.Name, monster.Life);
