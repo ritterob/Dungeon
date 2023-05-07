@@ -34,7 +34,8 @@ namespace AdventureLibrary {
             "     You must take on the role of one of the greatest adventurers of all time and, using the skills\n" +
             "you've honed from years of tracking and hunting, and numerous movie and video game appearances,\n" +
             "locate the Necropolis and extract the golden head of Ocxaloc, king of the Inca, from the throne\n" +
-            "room where it is enshrined.";
+            "room where it is enshrined. But beware your rival archaeologist; he, too, is on the trail of the golden\n" +
+            "statue. You must defeat him to return alive.";
         public static string Indy = "" +
             " __ \n" +
             "/_ |  Dr. Henry \"Indiana\" Jones is a professor of archaeology and anthropology whose prowess\n" +
