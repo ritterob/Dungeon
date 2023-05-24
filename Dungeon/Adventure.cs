@@ -150,7 +150,7 @@ namespace Dungeon {
                         place = Place.Necropolis;
                         Message.Reverse("You've discovered the Necropolis!\n");
                         Console.WriteLine("" +
-                            "You pass through a small opening that had lay hidden behind thick\n" +
+                            "You pass through a small opening that had lain hidden behind thick\n" +
                             "underbrush. As you descend into the tombs the air grows stale, and\n" +
                             "it becomes increasingly difficult to see.\n");
                         getBonus = false;
